@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
         gameObject.SetActive(false);
         gameOver.SetActive(true);
         cam.parent = null;
+        Time.timeScale = 0f;
     }
     public void Health()
     {

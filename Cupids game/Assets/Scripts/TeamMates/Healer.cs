@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Healer : MonoBehaviour
 {
+    public float health, maxHealth;
+
+
     // Start is called before the first frame update
     void Start()
     {
