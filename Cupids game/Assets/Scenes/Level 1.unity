@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 113824857}
   m_Layer: 3
   m_Name: BoundsBottom
-  m_TagString: Untagged
+  m_TagString: Bounds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,7 +151,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113824856}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 10, y: 2.220446e-16, z: 10}
@@ -871,23 +871,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1726967094711573046, guid: 2e9b94b1b847e4340a71a8cd2f50f973, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1726967095357523252, guid: 2e9b94b1b847e4340a71a8cd2f50f973, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1726967095462557310, guid: 2e9b94b1b847e4340a71a8cd2f50f973, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1726967095671117155, guid: 2e9b94b1b847e4340a71a8cd2f50f973, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1726967095685208036, guid: 2e9b94b1b847e4340a71a8cd2f50f973, type: 3}
       propertyPath: m_Name
       value: SettingsPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726967095685208036, guid: 2e9b94b1b847e4340a71a8cd2f50f973, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1726967095685208039, guid: 2e9b94b1b847e4340a71a8cd2f50f973, type: 3}
       propertyPath: m_Pivot.x
@@ -1057,7 +1061,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1037378529}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 368595786}
+        m_TargetAssemblyTypeName: SceneSwitch, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MainMenu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1037378529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2064,7 +2080,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1912233765}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 368595786}
+        m_TargetAssemblyTypeName: SceneSwitch, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Level 1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1912233765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2118,7 +2146,7 @@ GameObject:
   - component: {fileID: 1991072427}
   m_Layer: 3
   m_Name: BoundsTop
-  m_TagString: Untagged
+  m_TagString: Bounds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2131,7 +2159,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1991072426}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 10, y: 2.220446e-16, z: 10}
@@ -2228,6 +2256,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5998494836368815165, guid: 23abac3590679604db77ac013c8ac2b3, type: 3}
   m_PrefabInstance: {fileID: 5998494836747224714}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2140304056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140304055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32b217d903958cc42858b1706489cd62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOver: {fileID: 258644512}
+  cam: {fileID: 1472237457}
 --- !u!4 &2140304059 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5998494836368815153, guid: 23abac3590679604db77ac013c8ac2b3, type: 3}

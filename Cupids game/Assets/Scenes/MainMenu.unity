@@ -1358,23 +1358,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1726967094711573046, guid: 2e9b94b1b847e4340a71a8cd2f50f973, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1726967095357523252, guid: 2e9b94b1b847e4340a71a8cd2f50f973, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1726967095462557310, guid: 2e9b94b1b847e4340a71a8cd2f50f973, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1726967095671117155, guid: 2e9b94b1b847e4340a71a8cd2f50f973, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1726967095685208036, guid: 2e9b94b1b847e4340a71a8cd2f50f973, type: 3}
       propertyPath: m_Name
       value: SettingsPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726967095685208036, guid: 2e9b94b1b847e4340a71a8cd2f50f973, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1726967095685208039, guid: 2e9b94b1b847e4340a71a8cd2f50f973, type: 3}
       propertyPath: m_Pivot.x
@@ -1678,6 +1682,10 @@ PrefabInstance:
     - target: {fileID: 8819553305107572922, guid: ff48d5d8c65804e4f97628a0dca3f297, type: 3}
       propertyPath: m_Name
       value: LevelPickerPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819553305107572922, guid: ff48d5d8c65804e4f97628a0dca3f297, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8819553305107572925, guid: ff48d5d8c65804e4f97628a0dca3f297, type: 3}
       propertyPath: m_Pivot.x

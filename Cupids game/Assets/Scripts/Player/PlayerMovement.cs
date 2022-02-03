@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float horizontalMove;
-    private float verticalMove;
+   
     public float speed = 5;
     public float gravity = 10.0f;
 
