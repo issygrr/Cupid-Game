@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public delegate void EnemyKilled();
+    public static event EnemyKilled OnEnemyKilled;
     public GameObject gameOver;
     public Transform cam;
     private float healthbar = 100f;
@@ -14,6 +16,19 @@ public class Player : MonoBehaviour
         {
             gameObject.SetActive(false);
             GameOver();
+
+        }
+    }
+    public void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == ("Enemy"))
+        { 
+            Destroy(collision.gameObject);
+            EnemyManager.enemyLeft--;
+        }
+        if (OnEnemyKilled != null)
+        {
+            OnEnemyKilled();
 
         }
     }
