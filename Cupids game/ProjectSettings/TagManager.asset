@@ -14,8 +14,8 @@ TagManager:
   - Bounds
   - Water
   - UI
-  - 
-  - 
+  - NavMeshBounds
+  - Player
   - 
   - 
   - 
