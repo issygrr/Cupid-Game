@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class NavMesh : MonoBehaviour
 {
-    public Transform Playerpos;
+   Transform player;
     UnityEngine.AI.NavMeshAgent agent;
     // Start is called before the first frame update
-    public void Start()
+    void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
-   public void Update()
+    void Start()
+    {
+       
+      //  agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+    }
+   void Update()
     {
 
-        agent.destination = Playerpos.position;
-
+        agent.SetDestination(player.transform.position);
+        
     }
 }

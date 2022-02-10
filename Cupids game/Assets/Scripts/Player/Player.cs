@@ -12,6 +12,10 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     public void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.tag == ("Enemy"))
+        {
+            healthbar -=50;
+        }
         if(other.gameObject.tag == ("Bounds"))
         {
             gameObject.SetActive(false);
@@ -22,8 +26,9 @@ public class Player : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == ("Enemy"))
-        { 
-            Destroy(collision.gameObject);
+        {
+           
+           Destroy(collision.gameObject);
             EnemyManager.enemyLeft--;
         }
         if (OnEnemyKilled != null)
@@ -32,6 +37,7 @@ public class Player : MonoBehaviour
 
         }
     }
+     
     public void GameOver()
     {
         gameObject.SetActive(false);
@@ -41,6 +47,10 @@ public class Player : MonoBehaviour
     }
     public void Health()
     {
+        if(healthbar == 0)
+        {
+            GameOver();
+        }
         //when enemy attacks - health
     }
     void Start()
@@ -51,7 +61,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-
+        Health();
         //GameOver();
     }
 }
