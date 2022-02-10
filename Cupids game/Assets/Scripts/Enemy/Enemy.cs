@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public static event EnemyKilled OnEnemyKilled;
     // Start is called before the first frame update
     // public Transform Playerpos;
-    public NavMeshAgent agent;
+   // public NavMeshAgent agent;
     // public float health;
     public float lookRadius = 10f;
     public Transform target;
@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
   
     public void Start()
     {
-        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+       // agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         // health = 10;
     }
     public void Die()
@@ -42,11 +42,11 @@ public class Enemy : MonoBehaviour
     }
     public void Update()
     {
-        float distance = Vector3.Distance(target.position, transform.position);
-        if( distance <= lookRadius)
-        {
-            agent.SetDestination(target.position);
-        }
+       // float distance = Vector3.Distance(target.position, transform.position);
+       // if( distance <= lookRadius)
+       // {
+           // agent.SetDestination(target.position);
+       // }
         //enemy.destination = Playerpos.position;
 
     }
