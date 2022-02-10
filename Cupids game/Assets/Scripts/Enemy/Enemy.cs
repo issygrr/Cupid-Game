@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     // public Transform Playerpos;
     // public NavMeshAgent agent;
-    // public float health;
+     public float healthbar = 100f;
     // public float lookRadius = 10f;
     // public Transform target;
     // Start is called before the first frame update
@@ -21,10 +21,22 @@ public class Enemy : MonoBehaviour
     public void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        // health = 10;
+        healthbar = 100f;
         timeBtwShots = startTimeBtwShots;
     }
-    void PathComplete()
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == ("Weapon"))
+        {
+            Destroy(this.gameObject);
+        }
+        if (other.gameObject.tag == ("Weapon"))
+        {
+            healthbar -= 100;
+            print("enemy hit");
+        }
+    }
+        void PathComplete()
     {
         //if the path has reached its stopping destination, shoot
         if (Vector3.Distance(agent.destination, agent.transform.position) <= agent.stoppingDistance)
@@ -32,7 +44,7 @@ public class Enemy : MonoBehaviour
             if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
             {
                 Shoot();
-                print("reached");
+              //  print("reached");
             }
         }
 
@@ -40,8 +52,11 @@ public class Enemy : MonoBehaviour
     }
     public void Die()
     {
-        
+        if (healthbar == 0f)
+        {
+
             Destroy(gameObject);
+        }
         
         if(OnEnemyKilled != null)
         {

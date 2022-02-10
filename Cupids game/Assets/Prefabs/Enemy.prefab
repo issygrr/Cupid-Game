@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4882064447674578194}
   - component: {fileID: -5161428437130748946}
   - component: {fileID: -4118393714647961287}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4882064447674578221}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -114,7 +114,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &4882064447674578194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,7 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 6916582485946761260, guid: bbaa5f7c291a2f443b526b78985431d8, type: 3}
-  startTimeBtwShots: 1
+  startTimeBtwShots: 30
+  healthbar: 100
 --- !u!195 &-5161428437130748946
 NavMeshAgent:
   m_ObjectHideFlags: 0
