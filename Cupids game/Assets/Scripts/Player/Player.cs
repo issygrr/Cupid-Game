@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.tag == ("Enemy"))
         {
-           
+            print("this worked tho");
            Destroy(collision.gameObject);
             EnemyManager.enemyLeft--;
         }
@@ -61,6 +61,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+       
         Health();
         //GameOver();
     }

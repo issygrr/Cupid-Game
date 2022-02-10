@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
+    public PlayerBall playerBall;
     public delegate void EnemyKilled();
     public static event EnemyKilled OnEnemyKilled;
     NavMeshAgent agent;
+    Vector3 forwardVector = Vector3.forward;
     public GameObject ballPrefab;
     private float timeBtwShots;
     public float startTimeBtwShots;
@@ -14,29 +16,29 @@ public class Enemy : MonoBehaviour
     // public Transform Playerpos;
     // public NavMeshAgent agent;
      public float healthbar = 100f;
+    public Transform hitCheck;
+    public GameObject playerWeapon;
+    public float range = 10f;
     // public float lookRadius = 10f;
     // public Transform target;
     // Start is called before the first frame update
+    void OnTriggerEnter(Collider other)
+    {
 
-    public void Start()
-    {
-        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        healthbar = 100f;
-        timeBtwShots = startTimeBtwShots;
-    }
-    public void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == ("Weapon"))
-        {
-            Destroy(this.gameObject);
-        }
         if (other.gameObject.tag == ("Weapon"))
         {
             healthbar -= 100;
             print("enemy hit");
         }
     }
-        void PathComplete()
+    public void Start()
+    {
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        healthbar = 100f;
+        timeBtwShots = startTimeBtwShots;
+    }
+     
+    void PathComplete()
     {
         //if the path has reached its stopping destination, shoot
         if (Vector3.Distance(agent.destination, agent.transform.position) <= agent.stoppingDistance)
@@ -50,14 +52,18 @@ public class Enemy : MonoBehaviour
 
        // return false;
     }
-    public void Die()
+    void Health()
     {
         if (healthbar == 0f)
         {
 
-            Destroy(gameObject);
+            Die();
         }
-        
+    }
+    public void Die()
+    {
+
+        Destroy(gameObject);
         if(OnEnemyKilled != null)
         {
             OnEnemyKilled();
@@ -78,13 +84,25 @@ public class Enemy : MonoBehaviour
         }
     }
   
-    private void OnDrawGizmosSelected()
-    {
-       // Gizmos.color = Color.red;
-       // Gizmos.DrawWireSphere(transform.position, lookRadius);
-    }
+    //private void OnDrawGizmosSelected()
+    //{
+    //   // Gizmos.color = Color.red;
+    //   // Gizmos.DrawWireSphere(transform.position, lookRadius);
+    //}
     public void Update()
     {
+        RaycastHit hit; 
+            if(Physics.Raycast(hitCheck.transform.position, forwardVector, out hit, range))
+        {
+            Destroy(gameObject);
+        }
+
+        if (hit.collider != null && hit.collider.tag == ("Weapon"))
+        {
+
+            Destroy(gameObject);
+
+        }
         // float distance = Vector3.Distance(target.position, transform.position);
         // if( distance <= lookRadius)
         // {
@@ -92,6 +110,6 @@ public class Enemy : MonoBehaviour
         // }
         //enemy.destination = Playerpos.position;
         PathComplete();
-
+        Health();
     }
 }
