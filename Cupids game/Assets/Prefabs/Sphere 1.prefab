@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 4683714268574526023}
   - component: {fileID: 4683714268574526016}
   - component: {fileID: 4387086542379745680}
-  - component: {fileID: 1709882495340156355}
   m_Layer: 7
   m_Name: Sphere 1
-  m_TagString: Player
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,15 +112,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &1709882495340156355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4683714268574526018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01f541a38f7ede94e8d20ac1b20ecf3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

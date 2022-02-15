@@ -110,8 +110,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  gravity: 0
-  gMoon: -10
+  gravity: -6.96
+  gMoon: -7.01
 --- !u!54 &402606749934676076
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ public class CameraFPS : MonoBehaviour
         player.transform.Rotate(0f, mouseX, 0f, Space.World);
         weapon.transform.Rotate(-mouseY, 0f, 0f, Space.Self);
         xRot -= mouseY;
-        xRot = Mathf.Clamp(xRot, -90f, 90f);
+        xRot = Mathf.Clamp(xRot, -30f, 90f);
         transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);
 
        

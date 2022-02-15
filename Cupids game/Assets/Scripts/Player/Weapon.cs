@@ -14,6 +14,7 @@ public class Weapon : MonoBehaviour
     public delegate void EnemyKilled();
     public static event EnemyKilled OnEnemyKilled;
     private Camera cam;
+    PlayerBall playerBall;
     public float weaponRange = 50f;
     // Start is called before the first frame update
     void Start()
@@ -23,8 +24,8 @@ public class Weapon : MonoBehaviour
         //    this.enabled = false;
         //}
         //fpsCam = GetComponentInParent<Camera>();
-        enemy = GameObject.FindGameObjectWithTag("Enemy").transform;
-        target = new Vector3(enemy.position.x, enemy.position.y, enemy.position.z);
+       // enemy = GameObject.FindGameObjectWithTag("Enemy").transform;
+        //target = new Vector3(enemy.position.x, enemy.position.y, enemy.position.z);
     }
 
     // void OnCollisionEnter(Collision collision)
@@ -58,19 +59,20 @@ public class Weapon : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.LeftShift))
-        {
-           // RaycastHit hit;
-          //  Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
-            InstantiateTest();
+        //if(Input.GetKeyDown(KeyCode.LeftShift))
+        //{
+        //    // RaycastHit hit;
+        //    //  Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
+        //    playerBall.InstantiateTest();
+        //    Debug.Assert(playerBall);
             
-            //if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange))
-            //{
+        //    //if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange))
+        //    //{
 
-            //}
-                //Health();
-            // Shoot();
-        }
+        //    //}
+        //        //Health();
+        //    // Shoot();
+        //}
        
 
     }
@@ -83,13 +85,13 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    void InstantiateTest()
-    {
-         Instantiate(arrowBall, transform.position, Quaternion.identity);
-         //arrow.GetComponent<Rigidbody>().AddForce(transform.forward * 10);
-        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-        //Destroy(gameObject, 5f);
-        print("shot");
-    }
+    //void InstantiateTest()
+    //{
+    //     Instantiate(arrowBall, transform.position, Quaternion.identity);
+    //     //arrow.GetComponent<Rigidbody>().AddForce(transform.forward * 10);
+    //    transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+    //    //Destroy(gameObject, 5f);
+    //    print("shot");
+    //}
    
 }

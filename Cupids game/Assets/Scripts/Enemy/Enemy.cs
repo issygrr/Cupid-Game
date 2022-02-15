@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
-    public PlayerBall playerBall;
+   // public PlayerBall playerBall;
     public delegate void EnemyKilled();
     public static event EnemyKilled OnEnemyKilled;
     NavMeshAgent agent;
@@ -16,21 +16,29 @@ public class Enemy : MonoBehaviour
     // public Transform Playerpos;
     // public NavMeshAgent agent;
      public float healthbar = 100f;
-    public Transform hitCheck;
-    public GameObject playerWeapon;
+    //public Transform hitCheck;
+  //  public GameObject playerWeapon;
     public float range = 10f;
     // public float lookRadius = 10f;
     // public Transform target;
     // Start is called before the first frame update
-    void OnTriggerEnter(Collider other)
-    {
+    //void OnTriggerEnter(Collider other)
+    //{
 
-        if (other.gameObject.tag == ("Weapon"))
-        {
-            healthbar -= 100;
-            print("enemy hit");
-        }
-    }
+    //    if (other.gameObject.tag == ("Weapon"))
+    //    {
+    //        healthbar -= 100;
+    //        print("enemy hit");
+    //    }
+    //}
+    //public void OnCollisionEnter(Collision collision)
+    //{
+    //    if(collision.gameObject.tag == ("Weapon"))
+    //    {
+    //        healthbar -= 100;
+    //        print("enemy hit");
+    //    }
+    //}
     public void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -91,18 +99,18 @@ public class Enemy : MonoBehaviour
     //}
     public void Update()
     {
-        RaycastHit hit; 
-            if(Physics.Raycast(hitCheck.transform.position, forwardVector, out hit, range))
-        {
-            Destroy(gameObject);
-        }
+        //RaycastHit hit; 
+        //    if(Physics.Raycast(hitCheck.transform.position, forwardVector, out hit, range))
+        //{
+        //    Destroy(gameObject);
+        //}
 
-        if (hit.collider != null && hit.collider.tag == ("Weapon"))
-        {
+        //if (hit.collider != null && hit.collider.tag == ("Weapon"))
+        //{
 
-            Destroy(gameObject);
+        //    Destroy(gameObject);
 
-        }
+        //}
         // float distance = Vector3.Distance(target.position, transform.position);
         // if( distance <= lookRadius)
         // {
