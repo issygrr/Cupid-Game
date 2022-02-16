@@ -27,7 +27,7 @@ public class Ball : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.AddForce(new Vector3(0, -1.0f, 0) * rb.mass * gMoon);
+       // rb.AddForce(new Vector3(0, -1.0f, 0) * rb.mass * gMoon);
     }
 
     private void OnTriggerEnter(Collider other)

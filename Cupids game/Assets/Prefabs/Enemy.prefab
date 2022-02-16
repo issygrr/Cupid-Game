@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 4882064447674578221}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.04, y: 1.07, z: 8.8}
-  m_LocalScale: {x: 1, y: 0.934099, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: cc5099401ca49714d90b173c1130fa5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,8 +128,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 6916582485946761260, guid: bbaa5f7c291a2f443b526b78985431d8, type: 3}
-  startTimeBtwShots: 30
+  startTimeBtwShots: 2
   healthbar: 100
+  range: 10
 --- !u!195 &-5161428437130748946
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -140,7 +141,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 10
   m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 120

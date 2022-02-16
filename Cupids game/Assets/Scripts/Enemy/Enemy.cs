@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     //public Transform hitCheck;
   //  public GameObject playerWeapon;
     public float range = 10f;
+  //  PlayerBall player;
     // public float lookRadius = 10f;
     // public Transform target;
     // Start is called before the first frame update
@@ -91,6 +92,13 @@ public class Enemy : MonoBehaviour
             timeBtwShots -= Time.deltaTime;
         }
     }
+    //void OnContact()
+    //{
+    //    if(player.enemyDead == true)
+    //    {
+    //        Die();
+    //    }
+    //}
   
     //private void OnDrawGizmosSelected()
     //{
@@ -119,5 +127,6 @@ public class Enemy : MonoBehaviour
         //enemy.destination = Playerpos.position;
         PathComplete();
         Health();
+       // OnContact();
     }
 }
