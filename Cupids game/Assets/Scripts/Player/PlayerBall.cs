@@ -93,6 +93,7 @@ public class PlayerBall : MonoBehaviour
             {
                 Destroy(hit.collider.gameObject);
                 EnemyManager.enemyLeft--;
+                Scoremanager.points++;
             }
             if (OnEnemyKilled != null)
             {

@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 4683714268574526023}
   - component: {fileID: 4683714268574526016}
   - component: {fileID: 4387086542379745680}
-  m_Layer: 7
+  - component: {fileID: -5789378617748374549}
+  m_Layer: 2
   m_Name: Sphere 1
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -91,7 +92,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4683714268574526018}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
@@ -112,3 +113,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &-5789378617748374549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4683714268574526018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 802c2ecf5f04a8c41b11197167447f30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

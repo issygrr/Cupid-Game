@@ -8,6 +8,7 @@ public class EnemyManager : MonoBehaviour
     public Transform[] spawningPoints;
     public GameObject enemyPrefab;
     public static int enemyLeft;
+    public int killedEnemies;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +31,7 @@ public class EnemyManager : MonoBehaviour
         int randomNumber = Mathf.RoundToInt(Random.Range(0f, spawningPoints.Length - 1));
         Instantiate(enemyPrefab, spawningPoints[randomNumber].transform.position, Quaternion.identity);
     }
+    
 
    public void SpawnNewEnemy()
     {
