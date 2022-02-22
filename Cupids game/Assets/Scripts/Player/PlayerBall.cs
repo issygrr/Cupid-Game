@@ -11,20 +11,25 @@ public class PlayerBall : MonoBehaviour
     private Vector3 target;
     private float speed;
     public GameObject sphere1;
-    public float dmg = 10f;
+    //public float dmg = 25f;
     public float range = 100f;
     public Camera fpscam;
     public float shootForce, upwardForce;
     public Transform attackPoint;
     public float spread;
-   // public bool enemyDead;
+    public float damage = 25f;
+    public float impactForce = 30f;
+    public float health = 50f;
+    private bool death;
+
+    // public bool enemyDead;
 
     //public void OnCollisionEnter(Collision collision)
     //{
     //    print("collided");
     //    if (collision.gameObject.tag == ("Enemy"))
     //    {
-    //       // Destroy(Instantiate(gameObject.gameObject, transform.position, transform.rotation), 5f);
+    //        // Destroy(Instantiate(gameObject.gameObject, transform.position, transform.rotation), 5f);
     //        Destroy(collision.gameObject);
     //        EnemyManager.enemyLeft--;
     //    }
@@ -34,11 +39,12 @@ public class PlayerBall : MonoBehaviour
 
     //    }
 
+    //}
 
-   
     // Start is called before the first frame update
     void Start()
     {
+        death = false;
         //enemyDead = false;
     }
     public void Shoot()
@@ -65,21 +71,54 @@ public class PlayerBall : MonoBehaviour
         GameObject currentBullet = Instantiate(sphere1, attackPoint.position, Quaternion.identity); //store instantiated bullet in currentBullet
         //Rotate bullet to shoot direction
         currentBullet.transform.forward = directionWithSpread.normalized;
-        Destroy(currentBullet, 2f);
-        if(hit.collider.gameObject.tag == ("Enemy"))
+        Destroy(currentBullet, 4f);
+       
+        if (hit.collider.gameObject.tag == ("Enemy"))
         {
-            Destroy(hit.collider.gameObject);
-            Destroy(currentBullet,1f);
-            EnemyManager.enemyLeft--;
-        }
-        if (OnEnemyKilled != null)
-        {
-            OnEnemyKilled();
+            //Destroy(hit.collider.gameObject);
+            death = false;
+            // Enemy target = hit.transform.GetComponent<Enemy>();
+            // EnemyManager manager = hit.transform.GetComponent<EnemyManager>();
+            if (hit.collider.gameObject != null)
+            {
+                TakeDmg(damage);
+            }
+            else
+            {
+                death = false;
+                EnemyManager.enemyLeft++;
+            }
+
+            if (death == true)
+            {
+                Destroy(hit.collider.gameObject);
+                EnemyManager.enemyLeft--;
+            }
+            if (OnEnemyKilled != null)
+            {
+                OnEnemyKilled();
+
+            }
+
+
+            // if(hit.rigidbody != null)
+            // {
+            //     hit.rigidbody.AddForce(-hit.normal);
+            // }
+            //if (Enemy.healthbar == 0)
+            //{
+            //    Destroy(hit.collider.gameObject);
+            //    EnemyManager.enemyLeft--;
+            //}
+
+            Destroy(currentBullet, 1f);
+            //EnemyManager.enemyLeft--;
+            
 
         }
-        { 
-    }
-        
+       
+
+
         //Add forces to bullet
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(fpscam.transform.up * upwardForce, ForceMode.Impulse);
@@ -108,6 +147,15 @@ public class PlayerBall : MonoBehaviour
         // }
 
     }
+    public void TakeDmg(float amount)
+    {
+        health -= amount;
+        if (health <= 0f)
+        {
+            death = true;
+
+        }
+    }
     //public void EnemyKill()
     //{
     //    if (enemyDead == true)
@@ -124,11 +172,12 @@ public class PlayerBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+         
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             Shoot();
         }
-           
-     
+
+        Debug.DrawLine(transform.position, fpscam.transform.position);
     }
 }

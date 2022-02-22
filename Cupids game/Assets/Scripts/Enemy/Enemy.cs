@@ -15,7 +15,8 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     // public Transform Playerpos;
     // public NavMeshAgent agent;
-     public float healthbar = 100f;
+    public float health = 50f;
+     static public float healthbar = 100f;
     //public Transform hitCheck;
   //  public GameObject playerWeapon;
     public float range = 10f;
@@ -60,6 +61,15 @@ public class Enemy : MonoBehaviour
         }
 
        // return false;
+    }
+    public void TakeDmg(float amount)
+    {
+        health -= amount;
+        if(health <= 0f)
+        {
+            Die();
+            
+        }
     }
     void Health()
     {

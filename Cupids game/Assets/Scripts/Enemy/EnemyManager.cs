@@ -11,14 +11,14 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemyLeft = 1;
+        enemyLeft = 3;
         InstantateEnemy();
         //enemy = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
    void OnEnable()
     {
         Enemy.OnEnemyKilled += SpawnNewEnemy;
-        //PlayerBall.OnEnemyKilled += SpawnNewEnemy;
+        PlayerBall.OnEnemyKilled += SpawnNewEnemy;
     }
 
     public void Update()
@@ -31,9 +31,14 @@ public class EnemyManager : MonoBehaviour
         Instantiate(enemyPrefab, spawningPoints[randomNumber].transform.position, Quaternion.identity);
     }
 
-    void SpawnNewEnemy()
+   public void SpawnNewEnemy()
     {
         if (enemyLeft == 0)
+        {
+            InstantateEnemy();
+            enemyLeft++;
+        }
+        if(enemyLeft < 5)
         {
             InstantateEnemy();
             enemyLeft++;
