@@ -21,6 +21,14 @@ public class PlayerBall : MonoBehaviour
     public float impactForce = 30f;
     public float health = 50f;
     private bool death;
+    public Rigidbody rb;
+    public GameObject explosion;
+    public int explosionDamage;
+    public float explosionRange;
+    public float explosionForce;
+    public bool explodeOnTouch = true;
+    int collisions;
+    public LayerMask whatIsEnemies;
 
     // public bool enemyDead;
 
@@ -71,7 +79,7 @@ public class PlayerBall : MonoBehaviour
         GameObject currentBullet = Instantiate(sphere1, attackPoint.position, Quaternion.identity); //store instantiated bullet in currentBullet
         //Rotate bullet to shoot direction
         currentBullet.transform.forward = directionWithSpread.normalized;
-        Destroy(currentBullet, 4f);
+        Destroy(currentBullet, 3f);
        
         if (hit.collider.gameObject.tag == ("Enemy"))
         {
@@ -147,6 +155,44 @@ public class PlayerBall : MonoBehaviour
         //     //}
         // }
 
+    }
+    private void Explode()
+    {
+        //Instantiate explosion
+        if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
+
+        //Check for enemies 
+        Collider[] enemies = Physics.OverlapSphere(transform.position, explosionRange, whatIsEnemies);
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            //Get component of enemy and call Take Damage
+
+            //Just an example!
+            ///enemies[i].GetComponent<ShootingAi>().TakeDamage(explosionDamage);
+
+            //Add explosion force (if enemy has a rigidbody)
+            if (enemies[i].GetComponent<Rigidbody>())
+                enemies[i].GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRange);
+        }
+
+        //Add a little delay, just to make sure everything works fine
+        Invoke("Delay", 0.05f);
+    }
+    private void Delay()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //Don't count collisions with other bullets
+        if (collision.collider.CompareTag("Weapon")) return;
+
+        //Count up collisions
+        collisions++;
+
+        //Explode if bullet hits an enemy directly and explodeOnTouch is activated
+        if (collision.collider.CompareTag("Enemy") && explodeOnTouch) Explode();
     }
     public void TakeDmg(float amount)
     {
