@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("MiniBoss"))
-        {
-            print("detected trigg");
-            Destroy(other.gameObject);
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.gameObject.CompareTag("MiniBoss"))
+    //    {
+    //        print("detected trigg");
+    //        Destroy(other.gameObject);
+    //    }
+    //}
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("MiniBoss"))
@@ -19,7 +19,17 @@ public class Test : MonoBehaviour
             print("detected");
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            print("something");
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+            EnemyManager.enemyLeft--;
+            Scoremanager.points++;
+        }
+
     }
+
     // Start is called before the first frame update
     void Start()
     {

@@ -13,7 +13,7 @@ public class CameraFPS : MonoBehaviour
     // add clamp for grouncheck
     public void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
     }
     // Update is called once per frame
     public void Update()

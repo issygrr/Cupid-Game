@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
         gameOver.SetActive(true);
         cam.parent = null;
         Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
     }
     public void Health()
     {

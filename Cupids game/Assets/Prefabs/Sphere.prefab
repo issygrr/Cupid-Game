@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f14bc777183b9c42a2bcf77107078e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
   gravity: -6.96
   gMoon: -7.01
 --- !u!54 &402606749934676076

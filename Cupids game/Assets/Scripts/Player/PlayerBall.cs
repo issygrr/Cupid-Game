@@ -29,6 +29,11 @@ public class PlayerBall : MonoBehaviour
     public bool explodeOnTouch = true;
     int collisions;
     public LayerMask whatIsEnemies;
+    public Transform enemy;
+    float distance;
+    public GameObject one;
+    public GameObject two;
+
 
     // public bool enemyDead;
 
@@ -75,60 +80,64 @@ public class PlayerBall : MonoBehaviour
         //Calculate new direction with spread
         Vector3 directionWithSpread = directionWithoutSpread + new Vector3(x, y, 0); //Just add spread to last direction
 
-        //Instantiate bullet/projectile
+        //Instantiate bullet/ projectile
         GameObject currentBullet = Instantiate(sphere1, attackPoint.position, Quaternion.identity); //store instantiated bullet in currentBullet
         //Rotate bullet to shoot direction
         currentBullet.transform.forward = directionWithSpread.normalized;
-        Destroy(currentBullet, 3f);
-       
-        if (hit.collider.gameObject.tag == ("Enemy"))
-        {
-            //Destroy(hit.collider.gameObject);
-            death = false;
-            // Enemy target = hit.transform.GetComponent<Enemy>();
-            // EnemyManager manager = hit.transform.GetComponent<EnemyManager>();
-            if (hit.collider.gameObject != null)
-            {
-                TakeDmg(damage);
-            }
-            else
-            {
-                death = false;
-                EnemyManager.enemyLeft++;
-            }
+        Destroy(currentBullet, 7f);
 
-            if (death == true)
-            {
-                Destroy(hit.collider.gameObject);
-                EnemyManager.enemyLeft--;
-                Scoremanager.points++;
-            }
-            if (OnEnemyKilled != null)
-            {
-                OnEnemyKilled();
-
-            }
+        //if (hit.collider.gameObject.tag == ("Enemy"))
+        //{
 
 
-            // if(hit.rigidbody != null)
-            // {
-            //     hit.rigidbody.AddForce(-hit.normal);
-            // }
-            //if (Enemy.healthbar == 0)
-            //{
-            //    Destroy(hit.collider.gameObject);
-            //    EnemyManager.enemyLeft--;
-            //}
+        //        //Destroy(hit.collider.gameObject);
+        //        death = false;
+        //        // Enemy target = hit.transform.GetComponent<Enemy>();
+        //        // EnemyManager manager = hit.transform.GetComponent<EnemyManager>();
+        //        //if (hit.collider.gameObject != null)
+        //        //{
+        //        //    TakeDmg(damage);
+        //        //}
+        //        //else
+        //        //{
+        //        //    death = false;
+        //        //    EnemyManager.enemyLeft++;
+        //        //}
 
-            Destroy(currentBullet, 1f);
-            //EnemyManager.enemyLeft--;
-            
+        //        //if (death == true)
+        //        //{
+        //        //    Destroy(hit.collider.gameObject);
+        //        //    EnemyManager.enemyLeft--;
+        //        //    Scoremanager.points++;
+        //        //}
+        //        //if (OnEnemyKilled != null)
+        //        //{
+        //        //    OnEnemyKilled();
 
-        }
-       
+        //        //}
 
 
-        //Add forces to bullet
+
+
+        //    // if(hit.rigidbody != null)
+        //    // {
+        //    //     hit.rigidbody.AddForce(-hit.normal);
+        //    // }
+        //    //if (Enemy.healthbar == 0)
+        //    //{
+        //    //    Destroy(hit.collider.gameObject);
+        //    //    EnemyManager.enemyLeft--;
+        //    //}
+
+        //    Destroy(currentBullet, 1f);
+        //    //EnemyManager.enemyLeft--;
+
+
+        //}
+
+
+
+        ////Add forces to bullet
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(fpscam.transform.up * upwardForce, ForceMode.Impulse);
 
@@ -187,6 +196,7 @@ public class PlayerBall : MonoBehaviour
     {
         //Don't count collisions with other bullets
         if (collision.collider.CompareTag("Weapon")) return;
+        if (collision.collider.CompareTag("Player")) return;
 
         //Count up collisions
         collisions++;
@@ -219,8 +229,9 @@ public class PlayerBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        float distance = Vector3.Distance(one.transform.position, two.transform.position);
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();
         }

@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 6916582485946761260, guid: bbaa5f7c291a2f443b526b78985431d8, type: 3}
-  startTimeBtwShots: 0.5
+  startTimeBtwShots: 1.5
   health: 50
   range: 10
 --- !u!195 &-5161428437130748946
