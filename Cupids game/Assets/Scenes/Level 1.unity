@@ -490,7 +490,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &258644513
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2105,6 +2105,34 @@ PrefabInstance:
       propertyPath: levelpicker
       value: 
       objectReference: {fileID: 2026309253}
+    - target: {fileID: 8744296044802484315, guid: 7b78b0d3b96c39543aa1e7cf3ed7ef64, type: 3}
+      propertyPath: hearts.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8744296044802484315, guid: 7b78b0d3b96c39543aa1e7cf3ed7ef64, type: 3}
+      propertyPath: hearts.Array.data[0]
+      value: 
+      objectReference: {fileID: 256699796}
+    - target: {fileID: 8744296044802484315, guid: 7b78b0d3b96c39543aa1e7cf3ed7ef64, type: 3}
+      propertyPath: hearts.Array.data[1]
+      value: 
+      objectReference: {fileID: 744384822}
+    - target: {fileID: 8744296044802484315, guid: 7b78b0d3b96c39543aa1e7cf3ed7ef64, type: 3}
+      propertyPath: hearts.Array.data[2]
+      value: 
+      objectReference: {fileID: 500172482}
+    - target: {fileID: 8744296044802484315, guid: 7b78b0d3b96c39543aa1e7cf3ed7ef64, type: 3}
+      propertyPath: hearts.Array.data[3]
+      value: 
+      objectReference: {fileID: 1808150170}
+    - target: {fileID: 8744296044802484315, guid: 7b78b0d3b96c39543aa1e7cf3ed7ef64, type: 3}
+      propertyPath: hearts.Array.data[4]
+      value: 
+      objectReference: {fileID: 1379526763}
+    - target: {fileID: 8744296044802484315, guid: 7b78b0d3b96c39543aa1e7cf3ed7ef64, type: 3}
+      propertyPath: hearts.Array.data[5]
+      value: 
+      objectReference: {fileID: 1649383583}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b78b0d3b96c39543aa1e7cf3ed7ef64, type: 3}
 --- !u!1 &790590594

@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public static event EnemyKilled OnEnemyKilled;
     public GameObject gameOver;
     public Transform cam;
+    public UI uI;
     
     private float healthbar = 60f;
     // Start is called before the first frame update
@@ -22,7 +23,7 @@ public class Player : MonoBehaviour
         {
             gameObject.SetActive(false);
             GameOver();
-            
+            PlayerHealth.numbOfHearts = 0;
         }
     }
     
@@ -33,15 +34,25 @@ public class Player : MonoBehaviour
         gameObject.SetActive(false);
         gameOver.SetActive(true);
         cam.parent = null;
-        Time.timeScale = 0f;
+        Time.timeScale = 0.1f;
         Cursor.lockState = CursorLockMode.None;
     }
     public void Health()
     {
-        if(healthbar == 0)
+        if (healthbar == 0)
         {
-            GameOver();
-           
+            
+            if (PlayerHealth.numbOfHearts == 0)
+            {
+
+
+
+            }
+            else
+            {
+                GameOver();
+
+            }
         }
         //when enemy attacks - health
     }

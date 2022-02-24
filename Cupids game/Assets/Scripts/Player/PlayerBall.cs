@@ -202,7 +202,7 @@ public class PlayerBall : MonoBehaviour
         collisions++;
 
         //Explode if bullet hits an enemy directly and explodeOnTouch is activated
-        if (collision.collider.CompareTag("Enemy") && explodeOnTouch) Explode();
+       // if (collision.collider.CompareTag("Enemy") && explodeOnTouch) Explode();
     }
     public void TakeDmg(float amount)
     {

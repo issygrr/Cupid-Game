@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
    // public PlayerBall playerBall;
@@ -15,8 +16,11 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     // public Transform Playerpos;
     // public NavMeshAgent agent;
-    public float health = 50f;
+    public float enemyhealth = 50f;
+    public float maxHealth;
      static public float healthbar = 100f;
+    public Slider slider;
+    public GameObject healthBarUI;
     //public Transform hitCheck;
   //  public GameObject playerWeapon;
     public float range = 10f;
@@ -44,10 +48,15 @@ public class Enemy : MonoBehaviour
     public void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        healthbar = 100f;
+        
         timeBtwShots = startTimeBtwShots;
+        enemyhealth = maxHealth;
+        slider.value = CalculateHealth();
     }
-     
+    float CalculateHealth()
+    {
+        return enemyhealth / maxHealth;   
+    }
     void PathComplete()
     {
         //if the path has reached its stopping destination, shoot
@@ -64,8 +73,8 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDmg(float amount)
     {
-        health -= amount;
-        if(health <= 0f)
+        enemyhealth -= amount;
+        if(enemyhealth <= 0f)
         {
             Die();
             
@@ -117,24 +126,10 @@ public class Enemy : MonoBehaviour
     //}
     public void Update()
     {
-        //RaycastHit hit; 
-        //    if(Physics.Raycast(hitCheck.transform.position, forwardVector, out hit, range))
-        //{
-        //    Destroy(gameObject);
-        //}
-
-        //if (hit.collider != null && hit.collider.tag == ("Weapon"))
-        //{
-
-        //    Destroy(gameObject);
-
-        //}
-        // float distance = Vector3.Distance(target.position, transform.position);
-        // if( distance <= lookRadius)
-        // {
-        // agent.SetDestination(target.position);
-        // }
-        //enemy.destination = Playerpos.position;
+        if(enemyhealth < maxHealth)
+        {
+            healthBarUI.SetActive(true);
+        }
         PathComplete();
         Health();
        // OnContact();
