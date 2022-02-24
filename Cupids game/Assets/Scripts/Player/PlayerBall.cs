@@ -84,7 +84,7 @@ public class PlayerBall : MonoBehaviour
         GameObject currentBullet = Instantiate(sphere1, attackPoint.position, Quaternion.identity); //store instantiated bullet in currentBullet
         //Rotate bullet to shoot direction
         currentBullet.transform.forward = directionWithSpread.normalized;
-        Destroy(currentBullet, 7f);
+        Destroy(currentBullet, 4f);
 
         //if (hit.collider.gameObject.tag == ("Enemy"))
         //{
@@ -229,7 +229,7 @@ public class PlayerBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector3.Distance(one.transform.position, two.transform.position);
+       
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {

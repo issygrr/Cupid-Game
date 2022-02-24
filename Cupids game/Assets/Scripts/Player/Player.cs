@@ -8,35 +8,24 @@ public class Player : MonoBehaviour
     public static event EnemyKilled OnEnemyKilled;
     public GameObject gameOver;
     public Transform cam;
-    private float healthbar = 100f;
+    
+    private float healthbar = 60f;
     // Start is called before the first frame update
     public void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == ("Enemy"))
         {
-            healthbar -=50;
+            healthbar -=10;
+            PlayerHealth.numbOfHearts--;
         }
         if(other.gameObject.tag == ("Bounds"))
         {
             gameObject.SetActive(false);
             GameOver();
-
+            
         }
     }
-    public void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == ("Enemy"))
-        {
-            print("this worked tho");
-           Destroy(collision.gameObject);
-            EnemyManager.enemyLeft--;
-        }
-        if (OnEnemyKilled != null)
-        {
-            OnEnemyKilled();
-
-        }
-    }
+    
 
      
     public void GameOver()
@@ -52,6 +41,7 @@ public class Player : MonoBehaviour
         if(healthbar == 0)
         {
             GameOver();
+           
         }
         //when enemy attacks - health
     }

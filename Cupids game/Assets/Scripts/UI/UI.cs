@@ -6,7 +6,7 @@ public class UI : MonoBehaviour
 {
     public GameObject settings;
     public GameObject levelpicker;
-
+    public GameObject[] hearts;
    
     // UI manager for buttons
     public void Start()
@@ -14,6 +14,7 @@ public class UI : MonoBehaviour
         //hide UI panels
         levelpicker.SetActive(false);
         settings.SetActive(false);
+        hearts[6].SetActive(false);
 
     }
     public void Settings()
