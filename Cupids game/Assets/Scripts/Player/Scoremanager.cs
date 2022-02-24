@@ -28,7 +28,7 @@ public class Scoremanager : MonoBehaviour
     }
     void YouWon()
     {
-        if(points == 20)
+        if(points == 1)
         {
             won.SetActive(true);
             Time.timeScale = 0f;

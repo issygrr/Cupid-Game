@@ -1800,7 +1800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  won: {fileID: 0}
+  won: {fileID: 815189344}
 --- !u!114 &740230000
 MonoBehaviour:
   m_ObjectHideFlags: 0

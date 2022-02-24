@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
             TakeDmg(25);
             slider.value -= 0.25f;
             
-            Scoremanager.points++;
+            
         }
     }
     float CalculateHealth()
@@ -89,6 +89,7 @@ public class Enemy : MonoBehaviour
         {
             slider.value = 0;
             EnemyManager.enemyLeft--;
+            Scoremanager.points++;
             Die();
             
         }
