@@ -88,7 +88,7 @@ public class Enemy : MonoBehaviour
         if(enemyhealth == 0f)
         {
             slider.value = 0;
-            //EnemyManager.enemyLeft--;
+            EnemyManager.enemyLeft--;
             Die();
             
         }

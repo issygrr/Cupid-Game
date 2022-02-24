@@ -1,0 +1,12 @@
+
+How to play:
+
+move around with wasd and space fly and left click shoot
+
+Feedback:
+The flying feels nice and fuild, movemnt didnt feel constricted. shooting was accuirte to where cursor was.
+
+sometimes it felt like the player character would do stuff on its own eg flew stright up without button being pressed.
+
+
+FEEDBACK: INCREASE DIFFICULTY WHEN YOU FLY UP HIGHER

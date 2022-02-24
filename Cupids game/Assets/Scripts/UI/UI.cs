@@ -20,7 +20,10 @@ public class UI : MonoBehaviour
     
     public void Settings()
     {
-        settings.SetActive(true);
+        
+        
+            settings.SetActive(true);
+        
     }
     public void LevelPick()
     {

@@ -8,11 +8,12 @@ public class Scoremanager : MonoBehaviour
 {
     public static int points;
     public int score;
+    public GameObject won;
     //private EnemyManager enemy;
     // Start is called before the first frame update
     void Start()
     {
-
+        won.SetActive(false);
         points = 0;
     }
     public void AddPoints()
@@ -25,6 +26,14 @@ public class Scoremanager : MonoBehaviour
         //++points;
        
     }
+    void YouWon()
+    {
+        if(points == 20)
+        {
+            won.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
     public void OnGUI()
     {
         GUI.contentColor = Color.black;
@@ -33,6 +42,6 @@ public class Scoremanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        YouWon();
     }
 }
