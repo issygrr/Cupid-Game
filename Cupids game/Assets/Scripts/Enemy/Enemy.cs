@@ -16,8 +16,8 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     // public Transform Playerpos;
     // public NavMeshAgent agent;
-    public float enemyhealth = 50f;
-    public float maxHealth;
+    public float enemyhealth = 100f;
+    public float maxHealth = 100f;
      static public float healthbar = 100f;
     public Slider slider;
     public GameObject healthBarUI;
@@ -53,6 +53,17 @@ public class Enemy : MonoBehaviour
         enemyhealth = maxHealth;
         slider.value = CalculateHealth();
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Weapon"))
+        {
+            print("something");
+            TakeDmg(25);
+            slider.value -= 0.25f;
+            
+            Scoremanager.points++;
+        }
+    }
     float CalculateHealth()
     {
         return enemyhealth / maxHealth;   
@@ -74,15 +85,17 @@ public class Enemy : MonoBehaviour
     public void TakeDmg(float amount)
     {
         enemyhealth -= amount;
-        if(enemyhealth <= 0f)
+        if(enemyhealth == 0f)
         {
+            slider.value = 0;
+            //EnemyManager.enemyLeft--;
             Die();
             
         }
     }
     void Health()
     {
-        if (healthbar == 0f)
+        if (enemyhealth == 0f)
         {
 
             Die();

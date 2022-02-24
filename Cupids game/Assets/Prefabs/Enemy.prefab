@@ -541,7 +541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 6916582485946761260, guid: bbaa5f7c291a2f443b526b78985431d8, type: 3}
   startTimeBtwShots: 1.5
-  health: 100
+  enemyhealth: 100
   maxHealth: 100
   slider: {fileID: 42140788}
   healthBarUI: {fileID: 909463675}

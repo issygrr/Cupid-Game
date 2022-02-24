@@ -14,19 +14,12 @@ public class Test : MonoBehaviour
     //}
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("MiniBoss"))
-        {
-            print("detected");
-            Destroy(collision.gameObject);
-        }
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            print("something");
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
-            EnemyManager.enemyLeft--;
-            Scoremanager.points++;
+            print("detected");
+            Destroy(gameObject, 0.1f);
         }
+        
 
     }
 

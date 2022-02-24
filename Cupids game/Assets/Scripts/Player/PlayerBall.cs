@@ -17,7 +17,7 @@ public class PlayerBall : MonoBehaviour
     public float shootForce, upwardForce;
     public Transform attackPoint;
     public float spread;
-    public float damage = 25f;
+    public float damage = 10f;
     public float impactForce = 30f;
     public float health = 50f;
     private bool death;
