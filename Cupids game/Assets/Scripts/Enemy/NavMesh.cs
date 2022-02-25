@@ -6,7 +6,6 @@ public class NavMesh : MonoBehaviour
 {
    Transform player;
     UnityEngine.AI.NavMeshAgent agent;
-    private Rigidbody rb;
     // Start is called before the first frame update
     void Awake()
     {
@@ -15,8 +14,7 @@ public class NavMesh : MonoBehaviour
     }
     void Start()
     {
-       // rb.velocity = transform.position;
-      //  agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+       
     }
    void Update()
     {

@@ -5,46 +5,23 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
-   // public PlayerBall playerBall;
+   
     public delegate void EnemyKilled();
     public static event EnemyKilled OnEnemyKilled;
     NavMeshAgent agent;
-    Vector3 forwardVector = Vector3.forward;
+    
     public GameObject ballPrefab;
     private float timeBtwShots;
     public float startTimeBtwShots;
-    // Start is called before the first frame update
-    // public Transform Playerpos;
-    // public NavMeshAgent agent;
+    
     public float enemyhealth = 100f;
     public float maxHealth = 100f;
      static public float healthbar = 100f;
     public Slider slider;
     public GameObject healthBarUI;
-    //public Transform hitCheck;
-  //  public GameObject playerWeapon;
+  
     public float range = 10f;
-  //  PlayerBall player;
-    // public float lookRadius = 10f;
-    // public Transform target;
-    // Start is called before the first frame update
-    //void OnTriggerEnter(Collider other)
-    //{
-
-    //    if (other.gameObject.tag == ("Weapon"))
-    //    {
-    //        healthbar -= 100;
-    //        print("enemy hit");
-    //    }
-    //}
-    //public void OnCollisionEnter(Collision collision)
-    //{
-    //    if(collision.gameObject.tag == ("Weapon"))
-    //    {
-    //        healthbar -= 100;
-    //        print("enemy hit");
-    //    }
-    //}
+  
     public void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -76,11 +53,11 @@ public class Enemy : MonoBehaviour
             if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
             {
                 Shoot();
-              //  print("reached");
+              
             }
         }
 
-       // return false;
+       
     }
     public void TakeDmg(float amount)
     {
@@ -125,19 +102,7 @@ public class Enemy : MonoBehaviour
             timeBtwShots -= Time.deltaTime;
         }
     }
-    //void OnContact()
-    //{
-    //    if(player.enemyDead == true)
-    //    {
-    //        Die();
-    //    }
-    //}
   
-    //private void OnDrawGizmosSelected()
-    //{
-    //   // Gizmos.color = Color.red;
-    //   // Gizmos.DrawWireSphere(transform.position, lookRadius);
-    //}
     public void Update()
     {
         if(enemyhealth < maxHealth)
@@ -146,6 +111,6 @@ public class Enemy : MonoBehaviour
         }
         PathComplete();
         Health();
-       // OnContact();
+       
     }
 }

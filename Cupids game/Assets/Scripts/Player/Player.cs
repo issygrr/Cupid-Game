@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public delegate void EnemyKilled();
-    public static event EnemyKilled OnEnemyKilled;
+
     public GameObject gameOver;
     public Transform cam;
     public UI uI;
@@ -41,18 +40,8 @@ public class Player : MonoBehaviour
     {
         if (healthbar == 0)
         {
-            
-            if (PlayerHealth.numbOfHearts == 0)
-            {
-
-
-
-            }
-            else
-            {
-                GameOver();
-
-            }
+            PlayerHealth.numbOfHearts = 0;
+            GameOver();
         }
         //when enemy attacks - health
     }

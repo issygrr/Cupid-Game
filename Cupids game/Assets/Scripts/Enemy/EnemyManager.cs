@@ -12,14 +12,14 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemyLeft = 3;
+        //enemyLeft = 1;
         InstantateEnemy();
         //enemy = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
    void OnEnable()
     {
         Enemy.OnEnemyKilled += SpawnNewEnemy;
-        PlayerBall.OnEnemyKilled += SpawnNewEnemy;
+        
     }
 
     public void Update()
