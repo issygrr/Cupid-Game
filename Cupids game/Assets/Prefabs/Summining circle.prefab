@@ -102,7 +102,6 @@ MonoBehaviour:
   isNotDone: 0
   stillDoing: 0
   timeLeft: 10
-  slider: {fileID: 3257046998161850903, guid: fb87f5ac42f6c2346b9ef029fc65a5e7, type: 3}
 --- !u!54 &351635819
 Rigidbody:
   m_ObjectHideFlags: 0

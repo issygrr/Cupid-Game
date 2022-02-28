@@ -81,13 +81,14 @@ public class Summoning : MonoBehaviour
         if (isNotDone == true && timeLeft == 0)
         {
 
-            if (isDone == true)
-            {
-                DestroyCircle();
-                SpawnSummoning.circlesLeft--;
-                // gameObject.SetActive(false);
-            }
+          
             //slider.gameObject.SetActive(false);
+        }
+        if (isDone == true)
+        {
+            DestroyCircle();
+            SpawnSummoning.circlesLeft--;
+            // gameObject.SetActive(false);
         }
     }
     void DestroyCircle()

@@ -9,6 +9,7 @@ public class SpawnSummoning : MonoBehaviour
     public Transform[] spawningPoints;
     public static int circlesLeft;
     public float pip;
+    public int points;
     public GameObject miniboss;
     
     //public  Slider slider;
@@ -22,9 +23,12 @@ public class SpawnSummoning : MonoBehaviour
     }
     void InstantateCircles()
     {
-        int randomNumber = Mathf.RoundToInt(Random.Range(0f, spawningPoints.Length - 1));
-
-        GameObject clone = Instantiate(summoningCircle, spawningPoints[randomNumber].transform.position, Quaternion.identity);
+        int randomNumber = Mathf.RoundToInt(Random.Range(0f, spawningPoints.Length));
+        for (int i = 0; i < 10; i++)
+        {
+            i = points;
+        }
+        GameObject clone = Instantiate(summoningCircle, spawningPoints[points].transform.position, Quaternion.identity);
         
     }
     //public void SliderTimer()
