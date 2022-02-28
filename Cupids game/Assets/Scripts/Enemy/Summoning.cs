@@ -27,6 +27,7 @@ public class Summoning : MonoBehaviour
     
     private void OnCollisionStay(Collision collision)
     {
+
         if (collision.gameObject.CompareTag("Player"))
         {
             SliderTimer.started = true;
@@ -36,12 +37,11 @@ public class Summoning : MonoBehaviour
             stillDoing = true;
             if (timeLeft <= 0)
             {
-
+                
                
                 timeLeft = 0f;
+                print("1");
             }
-            print("check");
-            
             
         }
         
@@ -52,6 +52,8 @@ public class Summoning : MonoBehaviour
        
        
         isNotDone = true;
+
+
     }
     void SummonComplete()
     {
@@ -86,16 +88,30 @@ public class Summoning : MonoBehaviour
         }
         if (isDone == true)
         {
-            DestroyCircle();
+            StartCoroutine(DestroyingTime());
+            
             SpawnSummoning.circlesLeft--;
             // gameObject.SetActive(false);
         }
     }
+
     void DestroyCircle()
     {
         Destroy(gameObject);
 
     }
+
+    IEnumerator DestroyingTime()
+    {
+
+        SliderTimer.started = false;
+
+        DestroyCircle();
+
+        yield return null;
+
+    }
+
     // Update is called once per frame
     void Update()
     {

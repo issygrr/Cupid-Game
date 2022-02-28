@@ -18,18 +18,20 @@ public class SpawnSummoning : MonoBehaviour
     void Start()
     {
         
-        miniboss.SetActive(false);
+        //miniboss.SetActive(false);
         InstantateCircles();
+        circlesLeft = 11;
     }
     void InstantateCircles()
     {
         int randomNumber = Mathf.RoundToInt(Random.Range(0f, spawningPoints.Length));
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 11; i++)
         {
-            i = points;
+            
+            GameObject clone = Instantiate(summoningCircle, spawningPoints[i].transform.position, Quaternion.identity);
         }
-        GameObject clone = Instantiate(summoningCircle, spawningPoints[points].transform.position, Quaternion.identity);
         
+        Debug.Log(points);
     }
     //public void SliderTimer()
     //{

@@ -12,28 +12,25 @@ public class SliderTimer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        started = false;
     }
     public void STimer()
     {
         if (started == true)
         {
-            print("started?)");
-          
 
             timeLeft -= Time.deltaTime;
-        slider.value = timeLeft;
+            slider.value = timeLeft;
 
         }
-        if(started == false)
+        else if(started == false)
         {
             
             timeLeft = 10;
             slider.value = 0f;
             
-        }
-        
-        if (timeLeft <= 0)
+        }        
+        else if (timeLeft <= 0)
         {
 
 
