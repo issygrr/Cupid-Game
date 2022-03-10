@@ -31,9 +31,11 @@ public class PlayerBall : MonoBehaviour
     public GameObject one;
     public GameObject two;
 
+    public bool DelaySet;
+
     void Start()
     {
-       
+        DelaySet = false;
     }
     public void Shoot()
     {
@@ -68,15 +70,31 @@ public class PlayerBall : MonoBehaviour
 
     }
    
-   
+    IEnumerator DelayShooting()
+    {
+
+        Shoot();
+
+        DelaySet = true;
+
+        yield return new WaitForSeconds(1f);
+
+        DelaySet = false;
+
+    }
+
+
     void Update()
     {
        
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Shoot();
+            if (DelaySet == false)
+            {
+                StartCoroutine(DelayShooting());
+            }
         }
 
-        Debug.DrawLine(transform.position, fpscam.transform.position);
+        
     }
 }

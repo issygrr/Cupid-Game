@@ -29,6 +29,7 @@ public class CameraFPS : MonoBehaviour
         xRot -= mouseY;
         xRot = Mathf.Clamp(xRot, -30f, 90f);
         transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);
+        weapon.transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);
 
        
     }

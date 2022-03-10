@@ -9,11 +9,17 @@ public class EnemyManager : MonoBehaviour
     public GameObject enemyPrefab;
     public static int enemyLeft;
     public int killedEnemies;
+    public int spawnEnemy;
+
     // Start is called before the first frame update
     void Start()
     {
+        for (int i = 0; i < spawnEnemy; i++)
+        {
+            InstantateEnemy();
+        }
         //enemyLeft = 1;
-        InstantateEnemy();
+        //InstantateEnemy();
         //enemy = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
    void OnEnable()
@@ -24,7 +30,7 @@ public class EnemyManager : MonoBehaviour
 
     public void Update()
     {
-        SpawnNewEnemy();
+        
     }
     void InstantateEnemy()
     {
@@ -35,15 +41,17 @@ public class EnemyManager : MonoBehaviour
 
    public void SpawnNewEnemy()
     {
-        if (enemyLeft == 0)
+        if (enemyLeft < spawnEnemy)
         {
             InstantateEnemy();
             enemyLeft++;
         }
-        if(enemyLeft < 5)
-        {
-            InstantateEnemy();
-            enemyLeft++;
-        }
+
+        //if(enemyLeft < 5)
+        //{
+        //    InstantateEnemy();
+        //    enemyLeft++;
+        //}
+
     }
 }

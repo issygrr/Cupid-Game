@@ -28,10 +28,11 @@ public class Scoremanager : MonoBehaviour
     }
     void YouWon()
     {
-        if(points == 30)
+        if(points == 15)
         {
             won.SetActive(true);
             Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
     public void OnGUI()

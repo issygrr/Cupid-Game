@@ -9,7 +9,8 @@ public class Player : MonoBehaviour
     public Transform cam;
     public UI uI;
     
-    private float healthbar = 60f;
+    public static float healthbar = 60f;
+
     // Start is called before the first frame update
     public void OnTriggerEnter(Collider other)
     {
@@ -25,9 +26,9 @@ public class Player : MonoBehaviour
             PlayerHealth.numbOfHearts = 0;
         }
     }
-    
 
-     
+
+
     public void GameOver()
     {
         gameObject.SetActive(false);
@@ -41,6 +42,9 @@ public class Player : MonoBehaviour
         if (healthbar == 0)
         {
             PlayerHealth.numbOfHearts = 0;
+
+            healthbar = 60f;
+
             GameOver();
         }
         //when enemy attacks - health
@@ -48,13 +52,16 @@ public class Player : MonoBehaviour
     void Start()
     {
         gameOver.SetActive(false);
+
+
     }
 
     // Update is called once per frame
     public void Update()
     {
-       
+
         Health();
+
         //GameOver();
     }
 }

@@ -6,8 +6,9 @@ public class UI : MonoBehaviour
 {
     public GameObject settings;
     public GameObject levelpicker;
-    
    
+
+
     // UI manager for buttons
     public void Start()
     {
@@ -38,5 +39,15 @@ public class UI : MonoBehaviour
         levelpicker.SetActive(false);
         settings.SetActive(false);
     }
+
+    //public void GameOver()
+    //{
+    //    Player.healthBar = 0
+    //    gameObject.SetActive(false);
+    //    gameOver.SetActive(true);
+    //    cam.parent = null;
+    //    Time.timeScale = 0.1f;
+    //    Cursor.lockState = CursorLockMode.None;
+    //}
     
 }
