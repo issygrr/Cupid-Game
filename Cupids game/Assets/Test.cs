@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
+    Transform enemy;
     //private void OnTriggerEnter(Collider other)
     //{
     //    if(other.gameObject.CompareTag("MiniBoss"))
@@ -12,12 +13,18 @@ public class Test : MonoBehaviour
     //        Destroy(other.gameObject);
     //    }
     //}
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
+       
         if (collision.gameObject.CompareTag("Enemy"))
         {
             print("detected");
-            Destroy(gameObject, 0.1f);
+            transform.parent = collision.transform;
+            transform.localPosition = Vector3.zero;
+            
+            gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            gameObject.GetComponent<MeshCollider>().isTrigger = true;
+
         }
         
 

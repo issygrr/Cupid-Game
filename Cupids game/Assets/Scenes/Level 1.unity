@@ -2762,17 +2762,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f541a38f7ede94e8d20ac1b20ecf3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphere1: {fileID: 4683714268574526018, guid: 0483ec8f3352e0046942e9bb885b9b4e, type: 3}
+  sphere1: {fileID: 6221168874049551167, guid: be314f4d0f0f46c45acd2507a0ed5d41, type: 3}
   range: 100
   fpscam: {fileID: 1472237456}
-  shootForce: 100
+  shootForce: 50
   upwardForce: 0
   attackPoint: {fileID: 1159890470}
   spread: 0
   damage: 25
   impactForce: 30
   health: 50
-  rb: {fileID: 4387086542379745680, guid: 0483ec8f3352e0046942e9bb885b9b4e, type: 3}
+  rb: {fileID: 0}
   explosion: {fileID: 0}
   explosionDamage: 40
   explosionRange: 0
@@ -2782,7 +2782,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   enemy: {fileID: 4882064447674578196, guid: 65db2e9870830f3468bad7c233015566, type: 3}
-  one: {fileID: 4683714268574526018, guid: 0483ec8f3352e0046942e9bb885b9b4e, type: 3}
+  one: {fileID: 6221168874049551167, guid: be314f4d0f0f46c45acd2507a0ed5d41, type: 3}
   two: {fileID: 4882064447674578221, guid: 65db2e9870830f3468bad7c233015566, type: 3}
   DelaySet: 0
 --- !u!1 &833751568
@@ -4604,7 +4604,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128

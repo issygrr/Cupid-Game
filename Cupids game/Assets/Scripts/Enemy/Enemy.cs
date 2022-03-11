@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
             slider.value -= 0.25f;
             
             
+            
         }
     }
     float CalculateHealth()
