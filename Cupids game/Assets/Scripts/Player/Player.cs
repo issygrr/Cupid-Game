@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.Rendering;
+
+
 public class Player : MonoBehaviour
 {
-
+    private const float V = 0.2f;
     public GameObject gameOver;
     public Transform cam;
     public UI uI;
+   
     
     public static float healthbar = 60f;
 
@@ -17,6 +21,7 @@ public class Player : MonoBehaviour
         if(other.gameObject.tag == ("Enemy"))
         {
             healthbar -=10;
+           
             PlayerHealth.numbOfHearts--;
         }
         if(other.gameObject.tag == ("Bounds"))
@@ -31,6 +36,7 @@ public class Player : MonoBehaviour
 
     public void GameOver()
     {
+        
         gameObject.SetActive(false);
         gameOver.SetActive(true);
         cam.parent = null;
@@ -52,7 +58,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         gameOver.SetActive(false);
-
+        
 
     }
 

@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637825197161803870
-    m_Hash: 2949620725
+      ticks: 637825359341252760
+    m_Hash: 2805806631
   m_LockFileStatus:
     m_FilePath: H:/Game Engine Group Project/Cupid-Game/Cupids game/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637825197163363540
-    m_Hash: 3405193578
+      ticks: 637825359341762530
+    m_Hash: 4095377420
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -429,12 +429,12 @@ m_PackageAssets:
         url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.vscode.git
         revision: b5ec9b38109e52b1b26597d521e4df75e042ebb9
         path: 
-    - packageId: com.unity.postprocessing@3.1.1
+    - packageId: com.unity.postprocessing@2.3.0
       testable: 0
       isDirectDependency: 1
-      version: 3.1.1
+      version: 2.3.0
       source: 1
-      resolvedPath: H:\Game Engine Group Project\Cupid-Game\Cupids game\Library\PackageCache\com.unity.postprocessing@3.1.1
+      resolvedPath: H:\Game Engine Group Project\Cupid-Game\Cupids game\Library\PackageCache\com.unity.postprocessing@2.3.0
       assetPath: Packages/com.unity.postprocessing
       name: com.unity.postprocessing
       displayName: Post Processing
@@ -495,12 +495,8 @@ m_PackageAssets:
         - 3.2.0
         - 3.2.1
         verified: 3.1.1
-      dependencies:
-      - name: com.unity.modules.physics
-        version: 1.0.0
-      resolvedDependencies:
-      - name: com.unity.modules.physics
-        version: 1.0.0
+      dependencies: []
+      resolvedDependencies: []
       keywords: []
       registry:
         id: main
@@ -514,13 +510,13 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637576678760000000
+      datePublishedTicks: 637144563160000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
-        url: git+https://github.com/Unity-Technologies/Graphics.git
-        revision: 075b452f2c4bf910a168632b3cedbd6835477ddd
+        url: git@github.com:Unity-Technologies/PostProcessing.git
+        revision: e6de985c41f04a5fc7c7227dd67e3e73fac834e7
         path: 
     - packageId: com.unity.test-framework@1.1.24
       testable: 0
