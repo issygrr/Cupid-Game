@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Healer : MonoBehaviour
 {
@@ -17,13 +18,19 @@ public class Healer : MonoBehaviour
     // Player, distance and other variables
     public Transform player;
 
-    bool delayHealth;
+    // Healing time
+    private float healingTime = 8f;
 
     // Healer details
     private  float healerHealth = 100f;
 
+    private bool healerDown;
+
     // Healer revive
     private float revivingTime = 5f;
+
+    // Slider for healthTime
+    public Image slider;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +39,7 @@ public class Healer : MonoBehaviour
 
         moveCheck = true;
 
-        delayHealth = true;
+        healerDown = false;
     }
 
     // Update is called once per frame
@@ -47,12 +54,10 @@ public class Healer : MonoBehaviour
 
     public void MoveToPoint()
     {
-
         transform.position = Vector3.MoveTowards(transform.position, movingPoints[randomPoint].position, moveSpeed * Time.deltaTime);
 
-        if (Vector3.Distance(transform.position, movingPoints[randomPoint].position) < 0.1f)
+        if (Vector3.Distance(transform.position, movingPoints[randomPoint].position) <= 0.1f)
         {
-
 
             if (moveCheck)
             {
@@ -78,32 +83,30 @@ public class Healer : MonoBehaviour
 
     public void LookAndHeal()
     {
-        if (Vector3.Distance(transform.position, player.position) < 20.0f)
+        if (healerDown == false)
         {
-            transform.LookAt(player);
+            slider.fillAmount += Time.deltaTime * 0.2f;
 
-            if (delayHealth && PlayerHealth.numbOfHearts < 6)
+            if (Vector3.Distance(transform.position, player.position) < 5.0f)
             {
+                transform.LookAt(player);
 
-                StartCoroutine(DelayHealth());
+                if (slider.fillAmount == 1f && PlayerHealth.numbOfHearts < 6)
+                {
+
+                    Player.healthbar += 10;
+
+                    PlayerHealth.numbOfHearts++;
+
+                    slider.fillAmount = 0f;
+                }
 
             }
-
+            else
+            {
+                transform.LookAt(movingPoints[randomPoint].position);
+            }
         }
-    }
-
-    IEnumerator DelayHealth()
-    {
-
-        delayHealth = false;
-
-        yield return new WaitForSeconds(5f);
-
-        Player.healthbar += 10;
-
-        PlayerHealth.numbOfHearts++;
-
-        delayHealth = true;
     }
 
     public void HealerHealth()
@@ -115,7 +118,8 @@ public class Healer : MonoBehaviour
 
             // Makes the healer stop healing
             moveCheck = false;
-            delayHealth = false;
+
+            healerDown = true;
 
             Debug.Log("Oh no i'm dying help me please!");
             
@@ -129,7 +133,7 @@ public class Healer : MonoBehaviour
                     if(revivingTime <= 0f)
                     {
                         moveCheck = true;
-                        delayHealth = true;
+                        healerDown = true;
                         healerHealth = 100f;
                         Debug.Log("Yey I'm alive! Thank you.");
                         revivingTime = 5f;
