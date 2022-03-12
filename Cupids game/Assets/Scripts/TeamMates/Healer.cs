@@ -18,9 +18,6 @@ public class Healer : MonoBehaviour
     // Player, distance and other variables
     public Transform player;
 
-    // Healing time
-    private float healingTime = 8f;
-
     // Healer details
     private  float healerHealth = 100f;
 
