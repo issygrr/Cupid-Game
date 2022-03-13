@@ -3028,3 +3028,4 @@ Received Import Request.
 Start importing Assets/Prefabs/PlayerArrow.prefab using Guid(be314f4d0f0f46c45acd2507a0ed5d41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8fe0f5f1243cdbce201622d2f54ff4c') in 0.155902 seconds 
   Import took 0.159548 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
