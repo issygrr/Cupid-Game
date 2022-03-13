@@ -15,6 +15,8 @@ public class Healer : MonoBehaviour
 
     bool moveCheck;
 
+    private float holdTime = 5f;
+
     // Player, distance and other variables
     public Transform player;
 
@@ -22,6 +24,8 @@ public class Healer : MonoBehaviour
     private  float healerHealth = 100f;
 
     private bool healerDown;
+
+    public GameObject healZone;
 
     // Healer revive
     private float revivingTime = 5f;
@@ -34,9 +38,9 @@ public class Healer : MonoBehaviour
     {
         randomPoint = Random.Range(0, movingPoints.Length);
 
-        moveCheck = true;
-
         healerDown = false;
+
+        moveCheck = true;
     }
 
     // Update is called once per frame
@@ -47,35 +51,29 @@ public class Healer : MonoBehaviour
         MoveToPoint();
 
         HealerHealth();
+
+        HealingZone();
     }
 
     public void MoveToPoint()
     {
-        transform.position = Vector3.MoveTowards(transform.position, movingPoints[randomPoint].position, moveSpeed * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position, movingPoints[randomPoint].position) <= 0.1f)
+        if (moveCheck)
         {
+            transform.position = Vector3.MoveTowards(transform.position, movingPoints[randomPoint].position, moveSpeed * Time.deltaTime);
 
-            if (moveCheck)
+            if (Vector3.Distance(transform.position, movingPoints[randomPoint].position) <= 0.1f)
             {
-                StartCoroutine(DelayMovement());
-                randomPoint = Random.Range(0, movingPoints.Length);
-                transform.position = Vector3.MoveTowards(transform.position, movingPoints[randomPoint].position, moveSpeed * Time.deltaTime);
+
+                holdTime -= Time.deltaTime;
+
+                if (holdTime <= 0f)
+                {
+                    randomPoint = Random.Range(0, movingPoints.Length);
+                    holdTime = 5;
+                }
+
             }
-
         }
-
-    }
-
-    IEnumerator DelayMovement()
-    {
-
-        moveCheck = false;
-
-        yield return new WaitForSeconds(6f);
-
-        moveCheck = true;
-
     }
 
     public void LookAndHeal()
@@ -144,6 +142,24 @@ public class Healer : MonoBehaviour
             }
 
         }
+    }
+
+
+    // If player goes 20f close to the healer then it will display the healing zone
+    public void HealingZone()
+    {
+
+        
+
+        if (Vector3.Distance(transform.position, player.position) < 15.0f)
+        {
+            healZone.SetActive(true);
+        }
+        else
+        {
+            healZone.SetActive(false);
+        }
+
     }
 
 
