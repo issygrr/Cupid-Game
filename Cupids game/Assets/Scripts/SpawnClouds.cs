@@ -6,13 +6,15 @@ public class SpawnClouds : MonoBehaviour
 {
     // Cloud variables
     public GameObject clouds;
+    public int NumberOfClouds;
     public Transform[] spawnPoints;
+    
 
     // Start is called before the first frame update
     void Start()
     {
 
-        for (int i = 0; i < 13; i++)
+        for (int i = 0; i < NumberOfClouds; i++)
         {
             GameObject clone = Instantiate(clouds, spawnPoints[i].transform.position, Quaternion.Euler(new Vector3(0, Random.Range(0f, 360f), 0)));
 

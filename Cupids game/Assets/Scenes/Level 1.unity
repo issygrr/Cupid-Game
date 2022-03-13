@@ -3779,6 +3779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clouds: {fileID: 7352666169921359091, guid: cf186b06347e5e5429458be603c42a55, type: 3}
+  NumberOfClouds: 12
   spawnPoints:
   - {fileID: 440357524}
   - {fileID: 1248515055}
