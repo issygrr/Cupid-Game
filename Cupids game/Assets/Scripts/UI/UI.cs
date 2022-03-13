@@ -18,13 +18,28 @@ public class UI : MonoBehaviour
        
 
     }
-    
+    private void Update()
+    {
+        Settings();
+    }
+
     public void Settings()
     {
-        
-        
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
             settings.SetActive(true);
+            Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else if(Input.GetButtonDown("Back"))
+        {
+            settings.SetActive(false);
+            Time.timeScale = 1f;
+        }
         
+
+
     }
     public void LevelPick()
     {
@@ -38,6 +53,7 @@ public class UI : MonoBehaviour
     {
         levelpicker.SetActive(false);
         settings.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     //public void GameOver()
