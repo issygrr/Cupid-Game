@@ -23,7 +23,7 @@ public class Test : MonoBehaviour
             transform.localPosition = Vector3.zero;
             
             gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            gameObject.GetComponent<MeshCollider>().isTrigger = true;
+            //gameObject.GetComponent<MeshCollider>().isTrigger = true;
 
         }
         

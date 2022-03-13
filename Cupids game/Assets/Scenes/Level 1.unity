@@ -1669,7 +1669,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 440357519}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4483, z: -3.1737194}
+  m_LocalPosition: {x: 0.286, y: 0.329, z: -3.1737194}
   m_LocalScale: {x: 0.080728985, y: 0.0072921426, z: 0.0427571}
   m_Children: []
   m_Father: {fileID: 113824861}
@@ -1992,7 +1992,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &581247759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2005,10 +2005,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712bd369de75e2948a8263b84851057c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closestEnemy: {fileID: 0}
-  ballPrefab: {fileID: 4683714268574526018, guid: 0483ec8f3352e0046942e9bb885b9b4e, type: 3}
+  ballPrefab: {fileID: 6221168874049551167, guid: be314f4d0f0f46c45acd2507a0ed5d41, type: 3}
   spawnPoint: {fileID: 937232835}
-  strenghtBall: 20
 --- !u!65 &581247760
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2079,7 +2077,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 581247758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.55, y: 6.29, z: 34.5}
+  m_LocalPosition: {x: 0.1, y: 6.29, z: 36.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 937232835}
@@ -4358,7 +4356,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248515050}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.06300003, y: 0.5632944, z: -2.9469192}
+  m_LocalPosition: {x: -0.517, y: 0.5632944, z: -2.9469192}
   m_LocalScale: {x: 0.080728985, y: 0.0072921426, z: 0.0427571}
   m_Children: []
   m_Father: {fileID: 113824861}
@@ -5500,7 +5498,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610271160}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.037355315, y: 0.5721885, z: -2.6474838}
+  m_LocalPosition: {x: -0.037355315, y: 0.535, z: -2.697}
   m_LocalScale: {x: 0.080728985, y: 0.0072921426, z: 0.0427571}
   m_Children: []
   m_Father: {fileID: 113824861}
@@ -7422,6 +7420,10 @@ PrefabInstance:
     - target: {fileID: 4882064447674578221, guid: 65db2e9870830f3468bad7c233015566, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4882064447674578221, guid: 65db2e9870830f3468bad7c233015566, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6943008434966909114, guid: 65db2e9870830f3468bad7c233015566, type: 3}
       propertyPath: player

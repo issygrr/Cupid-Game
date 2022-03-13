@@ -9,7 +9,7 @@ public class Tank : MonoBehaviour
     // Variables for moving
     private GameObject[] allEnemies;
 
-    public Transform closestEnemy;
+    private Transform closestEnemy;
 
     private GameObject closestEnemyGb;
 
@@ -17,9 +17,11 @@ public class Tank : MonoBehaviour
 
     private NavMeshAgent closestEnemyNMA;
 
-    private bool enemyContact;
-
     private float moveSpeed = 6f;
+
+    private float holdTime = 6f;
+
+    private float holdPosition = 0f;
 
     // Tank shoot
     public GameObject ballPrefab;
@@ -31,7 +33,7 @@ public class Tank : MonoBehaviour
 
     private Rigidbody ballRb;
 
-    public float strenghtBall = 20f;
+    private float strenghtBall = 10f;
 
     private int timeShoot = 0;
 
@@ -39,9 +41,7 @@ public class Tank : MonoBehaviour
     void Start()
     {
 
-        closestEnemy = null;
-
-        enemyContact = true;        
+        closestEnemy = null;        
 
         timePrefab = startTime;
 
@@ -59,7 +59,7 @@ public class Tank : MonoBehaviour
 
     }
 
-    // Found in google and youtube
+    
     public Transform FindNearestEnemy()
     {
 
@@ -108,36 +108,47 @@ public class Tank : MonoBehaviour
 
         if (Vector3.Distance(transform.position, closestEnemy.position) > 3.5f)
         {
-            // if bool is true // In start function add bool is true
-            if (enemyContact)
+            holdPosition -= Time.deltaTime;
+
+            if (holdPosition <= 0f)
             {
+
                 transform.position = Vector3.MoveTowards(transform.position, closestEnemy.position, moveSpeed * Time.deltaTime);
 
+                closestEnemyGb.GetComponent<Enemy>().enabled = false;
+
                 transform.LookAt(closestEnemy);
+
             }
+
         }
         else if (Vector3.Distance(transform.position, closestEnemy.position) <= 3.5f)
         {
 
-            enemyContact = false;
+            holdPosition = 15f;
 
-            if (timeShoot != 4)
+            if (holdTime > 0f)
             {
+
                 Stun();
 
                 ShootAtTarget();
 
+                holdTime -= Time.deltaTime;
+
             }
-            else if (timeShoot == 4)
+            else if (holdTime <= 0)
             {
 
-                enemyContact = true;
+                closestEnemyRb.constraints = RigidbodyConstraints.None;
 
-                timeShoot = 0;
-               
+                closestEnemyNMA.isStopped = false;
+
+                holdTime = 6f;
             }
-                            
+
         }
+       
 
     }
 
@@ -151,10 +162,6 @@ public class Tank : MonoBehaviour
         closestEnemyNMA = closestEnemyGb.GetComponent<NavMeshAgent>();
 
         closestEnemyNMA.isStopped = true;
-
-        closestEnemyGb.GetComponent<Enemy>().enabled = false;
-
-        
 
     }
 
