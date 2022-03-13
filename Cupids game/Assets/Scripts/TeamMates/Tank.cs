@@ -118,7 +118,9 @@ public class Tank : MonoBehaviour
         }
         else if (Vector3.Distance(transform.position, closestEnemy.position) <= 3.5f)
         {
-           
+
+            enemyContact = false;
+
             if (timeShoot != 4)
             {
                 Stun();
@@ -152,7 +154,7 @@ public class Tank : MonoBehaviour
 
         closestEnemyGb.GetComponent<Enemy>().enabled = false;
 
-        enemyContact = false;
+        
 
     }
 
