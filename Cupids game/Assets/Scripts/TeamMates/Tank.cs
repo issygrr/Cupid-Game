@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Tank : MonoBehaviour
 {
@@ -36,6 +37,9 @@ public class Tank : MonoBehaviour
     private float strenghtBall = 10f;
 
     private int timeShoot = 0;
+
+    // Slider to show the tank hold time
+    public Image slider;
 
     // Start is called before the first frame update
     void Start()
@@ -106,9 +110,11 @@ public class Tank : MonoBehaviour
     public void Movement()
     {
 
-        if (Vector3.Distance(transform.position, closestEnemy.position) > 3.5f)
+        if (Vector3.Distance(transform.position, closestEnemy.position) > 4f)
         {
             holdPosition -= Time.deltaTime;
+
+            slider.fillAmount += Time.deltaTime * 0.072f;
 
             if (holdPosition <= 0f)
             {
@@ -122,10 +128,12 @@ public class Tank : MonoBehaviour
             }
 
         }
-        else if (Vector3.Distance(transform.position, closestEnemy.position) <= 3.5f)
+        else if (Vector3.Distance(transform.position, closestEnemy.position) <= 4f)
         {
 
             holdPosition = 15f;
+
+            slider.fillAmount = 0;
 
             if (holdTime > 0f)
             {
