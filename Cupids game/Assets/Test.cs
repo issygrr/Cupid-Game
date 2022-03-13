@@ -22,7 +22,7 @@ public class Test : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             
-<<<<<<< HEAD
+
             print("detected");
 
             transform.SetParent(collision.transform, true);
@@ -39,10 +39,10 @@ public class Test : MonoBehaviour
 
 
 
-=======
+
             gameObject.GetComponent<Rigidbody>().isKinematic = true;
             //gameObject.GetComponent<MeshCollider>().isTrigger = true;
->>>>>>> f9b310412664d4e6a718ae3fa2d649de271d8cb1
+
 
         }
         

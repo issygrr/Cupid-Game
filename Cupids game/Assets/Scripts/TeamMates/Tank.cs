@@ -131,17 +131,17 @@ public class Tank : MonoBehaviour
         else if (Vector3.Distance(transform.position, closestEnemy.position) <= 4f)
         {
 
-<<<<<<< HEAD
-            enemyContact = false;
+
+            //enemyContact = false;
 
             if (timeShoot != 4)
-=======
+
             holdPosition = 15f;
 
             slider.fillAmount = 0;
 
             if (holdTime > 0f)
->>>>>>> f9b310412664d4e6a718ae3fa2d649de271d8cb1
+
             {
 
                 Stun();
@@ -177,13 +177,11 @@ public class Tank : MonoBehaviour
 
         closestEnemyNMA.isStopped = true;
 
-<<<<<<< HEAD
         closestEnemyGb.GetComponent<Enemy>().enabled = false;
 
         
 
-=======
->>>>>>> f9b310412664d4e6a718ae3fa2d649de271d8cb1
+
     }
 
 
