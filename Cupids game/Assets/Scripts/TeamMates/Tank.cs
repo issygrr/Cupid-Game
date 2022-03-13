@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Tank : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Tank : MonoBehaviour
     // Variables for moving
     private GameObject[] allEnemies;
 
-    public Transform closestEnemy;
+    private Transform closestEnemy;
 
     private GameObject closestEnemyGb;
 
@@ -17,9 +18,11 @@ public class Tank : MonoBehaviour
 
     private NavMeshAgent closestEnemyNMA;
 
-    private bool enemyContact;
-
     private float moveSpeed = 6f;
+
+    private float holdTime = 6f;
+
+    private float holdPosition = 0f;
 
     // Tank shoot
     public GameObject ballPrefab;
@@ -31,17 +34,18 @@ public class Tank : MonoBehaviour
 
     private Rigidbody ballRb;
 
-    public float strenghtBall = 20f;
+    private float strenghtBall = 10f;
 
     private int timeShoot = 0;
+
+    // Slider to show the tank hold time
+    public Image slider;
 
     // Start is called before the first frame update
     void Start()
     {
 
-        closestEnemy = null;
-
-        enemyContact = true;        
+        closestEnemy = null;        
 
         timePrefab = startTime;
 
@@ -59,7 +63,7 @@ public class Tank : MonoBehaviour
 
     }
 
-    // Found in google and youtube
+    
     public Transform FindNearestEnemy()
     {
 
@@ -106,38 +110,59 @@ public class Tank : MonoBehaviour
     public void Movement()
     {
 
-        if (Vector3.Distance(transform.position, closestEnemy.position) > 3.5f)
+        if (Vector3.Distance(transform.position, closestEnemy.position) > 4f)
         {
-            // if bool is true // In start function add bool is true
-            if (enemyContact)
+            holdPosition -= Time.deltaTime;
+
+            slider.fillAmount += Time.deltaTime * 0.072f;
+
+            if (holdPosition <= 0f)
             {
+
                 transform.position = Vector3.MoveTowards(transform.position, closestEnemy.position, moveSpeed * Time.deltaTime);
 
+                closestEnemyGb.GetComponent<Enemy>().enabled = false;
+
                 transform.LookAt(closestEnemy);
+
             }
+
         }
-        else if (Vector3.Distance(transform.position, closestEnemy.position) <= 3.5f)
+        else if (Vector3.Distance(transform.position, closestEnemy.position) <= 4f)
         {
 
+<<<<<<< HEAD
             enemyContact = false;
 
             if (timeShoot != 4)
+=======
+            holdPosition = 15f;
+
+            slider.fillAmount = 0;
+
+            if (holdTime > 0f)
+>>>>>>> f9b310412664d4e6a718ae3fa2d649de271d8cb1
             {
+
                 Stun();
 
                 ShootAtTarget();
 
+                holdTime -= Time.deltaTime;
+
             }
-            else if (timeShoot == 4)
+            else if (holdTime <= 0)
             {
 
-                enemyContact = true;
+                closestEnemyRb.constraints = RigidbodyConstraints.None;
 
-                timeShoot = 0;
-               
+                closestEnemyNMA.isStopped = false;
+
+                holdTime = 6f;
             }
-                            
+
         }
+       
 
     }
 
@@ -152,10 +177,13 @@ public class Tank : MonoBehaviour
 
         closestEnemyNMA.isStopped = true;
 
+<<<<<<< HEAD
         closestEnemyGb.GetComponent<Enemy>().enabled = false;
 
         
 
+=======
+>>>>>>> f9b310412664d4e6a718ae3fa2d649de271d8cb1
     }
 
 
