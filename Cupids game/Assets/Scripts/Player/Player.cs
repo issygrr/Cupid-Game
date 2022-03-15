@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
             GameOver();
             PlayerHealth.numbOfHearts = 0;
         }
+       
     }
 
 
